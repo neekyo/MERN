@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Logo from '../assets/logo.png';
 
 class Header extends Component {
 	renderContent() {
@@ -19,10 +20,14 @@ class Header extends Component {
 				return (
 					<React.Fragment>
 						<li>
-							<Link to="/">Home</Link>
+							<Link className="home" to="/">
+								Home
+							</Link>
 						</li>
 						<li>
-							<a href="/api/logout">Logout</a>
+							<a className="home" href="/api/logout">
+								Logout
+							</a>
 						</li>
 					</React.Fragment>
 				);
@@ -33,8 +38,8 @@ class Header extends Component {
 		return (
 			<nav>
 				<div className="nav-wrapper">
-					<Link to={this.props.auth ? '/surveys' : '/'} className="left brand-logo brand">
-						Intela Care
+					<Link to={this.props.auth ? '/landing' : '/'} className="left brand-logo home">
+						<img src={Logo} className="logo" alt="logo" />
 					</Link>
 					<ul className="right">{this.renderContent()}</ul>
 				</div>
